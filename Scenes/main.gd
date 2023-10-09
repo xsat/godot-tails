@@ -11,7 +11,7 @@ var tail_variants: Array[TailVariant]
 var tails: Array[Tail]
 
 var next_tail_position: int = 0
-var game_score: int = 10
+var game_score: int = 0
 
 func _ready() -> void:
 	tail_variants = [
@@ -33,6 +33,7 @@ func _ready() -> void:
 func _on_tail_variant_select(tail_variant: TailVariant) -> void:
 	if !tails[next_tail_position].visible:
 		tails[next_tail_position].visible = true
+		_add_to_game_score(1)
 	else:
 		_add_to_game_score(-1)
 		
