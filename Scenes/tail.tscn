@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://4emj7t8ke3d7"]
+
+[ext_resource type="Script" path="res://Scenes/tail.gd" id="1_r8uns"]
+
+[node name="Tail" type="ColorRect"]
+custom_minimum_size = Vector2(152, 152)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_r8uns")
+
+[node name="Symbol" type="Label" parent="."]
+custom_minimum_size = Vector2(152, 152)
+layout_mode = 0
+offset_right = 151.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "@"
+horizontal_alignment = 1
+vertical_alignment = 1

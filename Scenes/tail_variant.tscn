@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://b2ag87h8vdk35"]
+
+[ext_resource type="Script" path="res://Scenes/tail_variant.gd" id="1_e40gn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wl2ew"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vllkh"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o21sl"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_grd6q"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i2tvt"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="TailVariant" type="Button"]
+custom_minimum_size = Vector2(152, 152)
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_wl2ew")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vllkh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_o21sl")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_grd6q")
+theme_override_styles/focus = SubResource("StyleBoxFlat_i2tvt")
+text = "@"
+script = ExtResource("1_e40gn")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
