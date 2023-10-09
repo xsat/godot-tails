@@ -60,6 +60,17 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 
+[node name="Score" type="Label" parent="."]
+offset_top = 499.0
+offset_right = 480.0
+offset_bottom = 619.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0.00784314, 1)
+theme_override_font_sizes/font_size = 76
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Variants" type="HBoxContainer" parent="."]
 offset_left = 6.0
 offset_top = 642.0

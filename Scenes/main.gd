@@ -2,7 +2,7 @@ extends Node
 
 class_name Main
 
-const NONE_TAIL_POSITION: int = -1
+@onready var score: Label = $Score as Label
 
 var tail_symbols: Array[String] = ["@", "#", "$", "%", "&", "="]
 
@@ -10,7 +10,8 @@ var tail_variants: Array[TailVariant]
 
 var tails: Array[Tail]
 
-var current_tail_position: int = NONE_TAIL_POSITION
+var next_tail_position: int = 0
+var game_score: int = 10
 
 func _ready() -> void:
 	tail_variants = [
@@ -21,8 +22,7 @@ func _ready() -> void:
 	
 	for tail_variant in tail_variants:
 		tail_variant.select.connect(_on_tail_variant_select)
-		
-	_regenerate_tail_variants()
+		tail_variant.text = _generate_random_symbol()
 		
 	tails = [
 		$Tails/Tail1, $Tails/Tail2, $Tails/Tail3, 
@@ -31,11 +31,20 @@ func _ready() -> void:
 	]
 	
 func _on_tail_variant_select(tail_variant: TailVariant) -> void:
-	print(tail_variant.text)
+	if !tails[next_tail_position].visible:
+		tails[next_tail_position].visible = true
+	else:
+		game_score -= 1
+		score.text = "%s" % game_score
+		
+	tails[next_tail_position].symbol.text = tail_variant.text
 	
-func _regenerate_tail_variants() -> void:
-	for tail_variant in tail_variants:
-		tail_variant.text = _generate_random_symbol()
+	if next_tail_position >= tails.size() - 1:
+		next_tail_position = 0
+	else:
+		next_tail_position += 1
+	
+	tail_variant.text = _generate_random_symbol()
 	
 func _generate_random_symbol() -> String:
 	return tail_symbols.pick_random()
