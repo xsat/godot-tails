@@ -24,6 +24,10 @@ theme_override_constants/h_separation = 6
 theme_override_constants/v_separation = 6
 columns = 3
 
+[node name="Tail0" parent="Tails" instance=ExtResource("1_d3y7u")]
+visible = false
+layout_mode = 2
+
 [node name="Tail1" parent="Tails" instance=ExtResource("1_d3y7u")]
 visible = false
 layout_mode = 2
@@ -53,10 +57,6 @@ visible = false
 layout_mode = 2
 
 [node name="Tail8" parent="Tails" instance=ExtResource("1_d3y7u")]
-visible = false
-layout_mode = 2
-
-[node name="Tail9" parent="Tails" instance=ExtResource("1_d3y7u")]
 visible = false
 layout_mode = 2
 
