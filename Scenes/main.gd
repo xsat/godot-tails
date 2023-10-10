@@ -109,4 +109,20 @@ func _remove_victory_tails(first_tail: Tail, second_tail: Tail, third_tail: Tail
 	first_tail.visible = false
 	second_tail.visible = false
 	third_tail.visible = false
+		
+	var active_tails: Array[Tail] = []
+		
+	for tail in tails:
+		if tail.visible:
+			active_tails.append(tail)
+			
+		tail.visible = false
+		
+	var index: int = 0
+	for active_tail in active_tails:
+		tails[index].symbol.text = active_tail.symbol.text 
+		tails[index].visible = true
+		index += 1
+		
+	next_tail_position = index
 	
