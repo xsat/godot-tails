@@ -43,6 +43,8 @@ func _on_tail_variant_select(tail_variant: TailVariant) -> void:
 		next_tail_position = 0
 	else:
 		next_tail_position += 1
+		
+	_highlight_active_tail()
 	
 	tail_variant.text = _generate_random_symbol()
 	
@@ -125,4 +127,12 @@ func _remove_victory_tails(first_tail: Tail, second_tail: Tail, third_tail: Tail
 		index += 1
 		
 	next_tail_position = index
+	
+	_highlight_active_tail()
+	
+func _highlight_active_tail() -> void:
+	for tail in tails:
+		tail.color = Color(255, 255, 255)
+	
+	tails[next_tail_position].color = Color(255, 255, 0)
 	
