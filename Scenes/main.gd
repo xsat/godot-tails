@@ -3,6 +3,7 @@ extends Node
 class_name Main
 
 @onready var score: Label = $Score as Label
+@onready var max_score: Label = $MaxScore as Label
 
 var tail_symbols: Array[String] = ["@", "#", "$", "%", "&", "="]
 
@@ -12,6 +13,7 @@ var tails: Array[Tail]
 
 var next_tail_position: int = 0
 var game_score: int = 0
+var max_game_score: int = 0
 
 func _ready() -> void:
 	tail_variants = [
@@ -106,6 +108,12 @@ func _is_same_values(first_tail: Tail, second_tail: Tail, third_tail: Tail) -> b
 func _add_to_game_score(added_value: int) -> void:
 	game_score += added_value
 	score.text = "%s" % game_score
+	
+	if game_score > max_game_score:
+		max_game_score = game_score
+		max_score.text = "%s" % game_score
+	elif game_score < max_game_score:
+		max_score.visible = true
 	
 func _remove_victory_tails(first_tail: Tail, second_tail: Tail, third_tail: Tail) -> void:
 	first_tail.visible = false
